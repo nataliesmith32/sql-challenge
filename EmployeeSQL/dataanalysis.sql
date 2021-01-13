@@ -36,3 +36,18 @@ SELECT emp_to_dept.emp_no, employee_data.last_name, employee_data.first_name, de
 FROM emp_to_dept JOIN employee_data ON emp_to_dept.emp_no = employee_data.emp_no
 JOIN departments ON emp_to_dept.dept_no = departments.dept_no
 WHERE departments.dept_name = 'Sales';
+
+--"List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name."
+SELECT emp_to_dept.emp_no, employee_data.last_name, employee_data.first_name, departments.dept_name
+FROM emp_to_dept JOIN employee_data ON emp_to_dept.emp_no = employee_data.emp_no
+JOIN departments ON emp_to_dept.dept_no = departments.dept_no
+WHERE departments.dept_name = 'Sales' OR departments.dept_name = 'Development';
+
+--"In descending order, list the frequency count of employee last names, i.e., how many employees share each last name."
+SELECT last_name, COUNT(last_name) AS "frequency"
+FROM employee_data GROUP BY last_name
+ORDER BY COUNT(last_name) DESC;
+
+--BONUS
+
+--""
